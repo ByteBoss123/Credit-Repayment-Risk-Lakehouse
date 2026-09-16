@@ -1,0 +1,16 @@
+{
+  "dataset": "Default of Credit Card Clients",
+  "creator": "I-Cheng Yeh",
+  "doi": "10.24432/C55S3H",
+  "source_url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+  "download_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_zip_sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+  "csv_sha256": "84ba892a2a55a0d711259f30084753f22b14b0c56303baf25ced4e7600230248",
+  "rows": 30000,
+  "transformation": "Read original XLS sheet with header row 2; rename outcome column to default_next_month; serialize CSV. No records modified.",
+  "period": "April\u2013September 2005",
+  "currency": "NTD",
+  "retrieved_at": "2026-09-16"
+}

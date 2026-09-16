@@ -1,0 +1,31 @@
+{
+  "execution_environment": "Local Apache Spark 3.5.3 + Delta Lake 3.2.1; NOT Databricks",
+  "source_sha256": "84ba892a2a55a0d711259f30084753f22b14b0c56303baf25ced4e7600230248",
+  "first_run": {
+    "run_id": "3a1b4f33f1f7440e9ba058ba43dffee5",
+    "status": "SUCCESS",
+    "raw_rows": 30000,
+    "exact_duplicates": 0,
+    "rejected_rows": 0,
+    "accepted_accounts": 30000,
+    "monthly_rows": 180000
+  },
+  "replay_run": {
+    "run_id": "50acf19069fb4620a79c7dc63ac46b10",
+    "status": "SUCCESS",
+    "raw_rows": 30000,
+    "exact_duplicates": 0,
+    "rejected_rows": 0,
+    "accepted_accounts": 30000,
+    "monthly_rows": 180000
+  },
+  "checks": {
+    "bronze_replay_no_duplicate": true,
+    "current_accounts_30000": true,
+    "current_months_180000": true,
+    "failed_run_keeps_previous_publication": true,
+    "pandas_monthly_reconciliation": true,
+    "segment_rollups_reconcile": true
+  },
+  "databricks_execution": "NOT RUN: no workspace connector available"
+}
