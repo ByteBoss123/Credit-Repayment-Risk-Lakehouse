@@ -1,6 +1,6 @@
 # Executed results
 
-Environment: local Apache Spark 3.5.3 and Delta Lake 3.2.1. Databricks workspace execution is pending.
+Environment: local Apache Spark 3.5.3 and Delta Lake 3.2.1. Databricks workspace execution completed on 2026-09-16 (run status SUCCESS; see `CreditWatch_Databricks_executed_2026-09-16.ipynb`).
 
 ## Verified pipeline behavior
 

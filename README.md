@@ -15,7 +15,7 @@ Built with **PySpark, SQL, Delta Lake and Databricks-compatible notebooks**. Thi
 
 The code does not require an OAuth client ID, API token or a ChatGPT connector when you run it directly inside Databricks. Your account needs permission to create schemas, volumes, tables and views. Use an existing writable catalog if the default is restricted.
 
-**Execution status:** locally executed with Spark 3.5.3 and Delta Lake 3.2.1; workspace execution has not been performed. See `evidence/local_validation.json`, `evidence/test_results.txt` and `evidence/RESULTS.md`. Databricks permissions, serverless compatibility and job execution must be established by the first workspace run.
+**Execution status:** executed on Databricks Free Edition on 2026-09-16 (see `CreditWatch_Databricks_executed_2026-09-16.ipynb`): run status SUCCESS, 30,000 raw rows, 0 exact duplicates, 0 rejected rows, 30,000 accepted accounts, 180,000 account-month rows, and the grain, replay row-count and referential-integrity checks passed. Also executed locally with Spark 3.5.3 and Delta Lake 3.2.1; see `local_validation.json`, `test_results.txt` and `RESULTS.md`.
 
 ## What the project implements
 
