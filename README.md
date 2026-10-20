@@ -15,7 +15,7 @@ Built with **PySpark, SQL, Delta Lake and Databricks-compatible notebooks**. Thi
 
 The code does not require an OAuth client ID, API token or a ChatGPT connector when you run it directly inside Databricks. Your account needs permission to create schemas, volumes, tables and views. Use an existing writable catalog if the default is restricted.
 
-**Execution status:** executed on Databricks Free Edition on 2026-09-16 (see `CreditWatch_Databricks_executed_2026-09-16.ipynb`): run status SUCCESS, 30,000 raw rows, 0 exact duplicates, 0 rejected rows, 30,000 accepted accounts, 180,000 account-month rows, and the grain, replay row-count and referential-integrity checks passed. Also executed locally with Spark 3.5.3 and Delta Lake 3.2.1; see `local_validation.json`, `test_results.txt` and `RESULTS.md`.
+**Execution status:** executed on Databricks Free Edition on 2026-09-16 (see `notebooks/CreditWatch_Databricks_executed_2026-09-16.ipynb`): run status SUCCESS, 30,000 raw rows, 0 exact duplicates, 0 rejected rows, 30,000 accepted accounts, 180,000 account-month rows, and the grain, replay row-count and referential-integrity checks passed. Also executed locally with Spark 3.5.3 and Delta Lake 3.2.1; see `evidence/local_validation.json`, `evidence/test_results.txt` and `RESULTS.md`.
 
 ## What the project implements
 
@@ -71,15 +71,7 @@ This is a **full-snapshot batch pipeline**. Bronze is merged rather than appende
 
 Create a **Lakeflow Job** with one notebook task, choose this notebook, use serverless compute and set **maximum concurrent runs to 1**. Parameters are `catalog`, `schema`, `source_path`, `max_reject_rate` and `alert_threshold_pp`. Run on demand; scheduling a static dataset daily adds no new business information.
 
-The included `databricks.yml` is an optional declarative deployment definition. With an authenticated Databricks CLI and a supported workspace, set its variables and run:
-
-```bash
-databricks bundle validate --var catalog=workspace --var schema=creditwatch_portfolio_v1
-databricks bundle deploy --var catalog=workspace --var schema=creditwatch_portfolio_v1
-databricks bundle run creditwatch_job --var catalog=workspace --var schema=creditwatch_portfolio_v1
-```
-
-Upload the CSV to the configured volume before running the job. The CLI deployment has not been executed here. The browser notebook route is the simplest first run.
+No Databricks Asset Bundle is included. Use the notebook route above.
 
 ## Reproduce local verification
 
@@ -100,6 +92,7 @@ The test suite covers malformed input, invalid money values, exact/conflicting d
 - **Bad source checksum:** upload the supplied CSV unchanged. For a new data source, update contract, month mapping and provenance together.
 - **Quality gate failure:** inspect `pipeline_runs` and `quarantine_records`; correct the source and rerun. Do not simply raise the threshold to hide failures.
 - **Partial write / infrastructure failure:** rerun after fixing the cause. Uncommitted silver versions do not appear in reporting views. Bronze MERGE remains replay-safe.
+- **Local Spark bind failure:** set `SPARK_LOCAL_IP=127.0.0.1` when the container hostname cannot bind locally.
 - **Permissions error:** use a writable catalog/schema or have the workspace administrator grant the necessary access. No broad permission changes are made by this project.
 - **Serverless quota exceeded:** resume after capacity is available. The dataset is small, but workspace quotas still apply.
 - **History retention:** no automatic deletion is included. Before repeated production use, define retention for raw data, failed versions and audit logs.

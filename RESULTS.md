@@ -36,3 +36,6 @@ Codes -2 and 0 are counted as undocumented and included in the all-account denom
 - Databricks notebook execution, catalog permissions and serverless runtime behavior.
 - Databricks bundle validation/deployment and Lakeflow Job execution.
 - Any live-data ingestion, measured business savings or credit-loss reduction.
+
+
+Evidence files now live in `evidence/`; the executed Databricks notebook is in `notebooks/`. Local evidence and workspace evidence are separate runs.

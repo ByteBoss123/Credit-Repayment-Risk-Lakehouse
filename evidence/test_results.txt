@@ -1,0 +1,2 @@
+Repair run 2026-10-19: SPARK_LOCAL_IP=127.0.0.1 python -m pytest tests -q
+9 passed in 14.04s
