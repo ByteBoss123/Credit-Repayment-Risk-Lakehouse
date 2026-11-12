@@ -2,7 +2,7 @@
 
 CreditWatch addresses a practical risk-analytics problem: repayment records need consistent definitions, duplicate handling and quality checks before analysts can trust portfolio reports. The implementation converts raw records into monthly repayment facts, credit-limit segments and deterioration alerts. A failed batch does not replace the last successfully published dataset.
 
-Built with **PySpark, SQL, Delta Lake and Databricks-compatible notebooks**. This is a working historical-data demonstration. It is not connected to a bank, a live feed, or Mastercard.
+Built with **PySpark, SQL, Delta Lake and Databricks-compatible notebooks**. This is a working historical-data demonstration. It is not connected to a bank or a live feed.
 
 ## Start here
 
